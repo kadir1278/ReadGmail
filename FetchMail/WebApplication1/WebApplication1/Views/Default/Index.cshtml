@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@for (int i = 0; i < ViewBag.MailCount; i++)
+{
+    <h1>@ViewBag.MailList[i]</h1>
+}
