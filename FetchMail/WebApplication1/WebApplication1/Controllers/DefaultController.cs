@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
                     ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
                     client.Connect("imap.gmail.com", 993, true, cancel.Token);
                     client.AuthenticationMechanisms.Remove("XOAUTH");
-                    client.Authenticate("mailId", "mailpass", cancel.Token);
+                    client.Authenticate("mailID", "pass", cancel.Token);
                     var inbox = client.Inbox;
                     inbox.Open(FolderAccess.ReadOnly, cancel.Token);
                     List<string> m = new List<string>();
@@ -33,11 +33,11 @@ namespace WebApplication1.Controllers
                     client.Disconnect(true, cancel.Token);
                     ViewBag.MailCount = m.Count();
                     ViewBag.MailList = m;
-                    
-                    return View();
+
                 }
             }
 
+            return View();
         }
 
     }
